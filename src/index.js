@@ -1,6 +1,8 @@
 const express = require("express")
 const app = express()
+const cors = require("cors")
 const request = require("request")
+app.use(cors())
 app.get("/image/:url", (req, res) => {
   const url = decodeURIComponent(req.params.url)
   request(url).pipe(res)
